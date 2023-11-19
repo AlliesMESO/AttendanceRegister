@@ -1,0 +1,33 @@
+﻿@model AttendanceRegister.Models.AttendanceRecord
+
+<form method="post" asp-action="AddAttendance" asp-controller="Home">
+
+    <label for="ClassName">Class Name:</label>
+    <input type="text" name="ClassName" required><br>
+    
+<label for="Grade">Grade:</label>
+    <input type="number" name="Grade" required><br>
+    
+<label for="StudentName">Student Name:</label>
+<input type="text" name="StudentName" required><br>
+
+
+<label for="IsPresent">Attendace Status:</label>
+
+<select name="IsPresent" required>
+    <option value="true">Present</option>
+    <option value="false">Absent</option>
+</select><br>
+
+<label for="Date">Date:</label>
+<input type="date" name="Date" required><br>
+
+<label for="Time">Time:</label>
+<input type="time" name="Time" required><br>
+
+    <!-- Add the hidden input for RowVersion here -->
+   @* <input type="hidden" asp-for="RowVersion" />*@
+
+<button type="submit">Submit</button>
+
+</form>

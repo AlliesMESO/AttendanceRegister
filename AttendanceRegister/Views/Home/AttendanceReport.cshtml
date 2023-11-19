@@ -1,0 +1,27 @@
+﻿@model List<AttendanceRegister.Models.ViewModels.AttendanceReportViewModel>
+
+    <h1>Attendance Report</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Class Name</th>
+                <th>Grade</th>
+            <th>Student Name</th>
+            <th>Classes Attended</th>
+            <th>Classes Missed</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.ClassName</td>
+                <td>@item.Grade</td>
+                <td>@item.StudentName</td>
+                <td>@item.ClassesAttended</td>
+                <td>@item.ClassesMissed</td>
+            </tr>
+        }
+        </tbody>
+    </table>

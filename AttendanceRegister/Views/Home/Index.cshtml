@@ -1,8 +1,40 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model List<AttendanceRecord>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h2>Attendnace Records</h2>
+
+<a asp-controller="Home" asp-action="AddAttendance">Add Attendance</a>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Class Name</th>
+                <th>Grade</th>
+                <th>Student Name</th>
+                <th>Attendace Status</th>
+                <th>Date</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var record in Model)
+            {
+                <tr>
+                    <td>@record.ClassName</td>
+                    <td>@record.Grade</td>
+                    <td>@record.StudentName</td>
+                    <td>@(
+                        record.IsPresent ? "Present" : "Absent"
+                        )</td>
+                    <td>@record.Date</td>
+                    <td>@record.Time</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No attendance records available</p>
+}
