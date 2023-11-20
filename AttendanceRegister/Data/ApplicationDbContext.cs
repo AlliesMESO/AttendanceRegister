@@ -1,5 +1,7 @@
 ﻿using AttendanceRegister.Models;
+using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.EntityFrameworkCore;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace AttendanceRegister.Data
 {
@@ -12,12 +14,12 @@ namespace AttendanceRegister.Data
 
         public DbSet<AttendanceRecord> AttendanceRecords{ get; set; }
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<AttendanceRecord>()
-        //        .Property(p => p.RowVersion)
-        //        .IsRowVersion(); // Configure RowVersion as a
-        //                         // timestamp for optimistic concurrency control
-        //}
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+           if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlServer("Server = attendanceregisterdbserver.database.windows.net; Database = AttendanceRegister_db; User Id = Meso; Password = Qwerty@1; MultipleActiveResultSets = True; Trusted_Connection = False; Encrypt = True; ");
+            }
+        }
     }
 }

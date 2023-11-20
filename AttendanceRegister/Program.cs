@@ -22,5 +22,7 @@ namespace AttendanceRegister
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
+
     }
 }
