@@ -1,13 +1,81 @@
 ﻿@model AttendanceRegister.Models.AttendanceRecord
 <head>
     <link rel="stylesheet" href="~/css/form-styles.css" />
+
+    @*JavaScripts*@
+    <script src="~/js/form-scripts.js"></script>
 </head>
 
 <form method="post" asp-action="AddAttendance" asp-controller="Home">
 
     <div class="form-group">
+
         <label for="ClassName">Class Name</label>
-        <input type="text" name="ClassName" required><br>
+        <button type="button" id="coreSubjectsButton" onclick="showCoreSubjectsDropdown()">Core Subjects</button>
+        <button type="button" id="languagesButton" onclick="showLanguagesDropdown()">Language Studies</button>
+
+
+        <div class="dropdown-container">
+
+            <div id="coreSubjectsContainer">
+
+
+                <div id="coreSubjectsDropdown" class="dropdown-content" style="display: none;">
+
+                    <!-- Dropdown for core subjects -->
+                    <label for="SelectedCoreSubject">Specify The Core Subject For The Class In Session</label>
+
+                    <select name="ClassName" id="coreSubjectsDropdown">
+
+                        <option value="Accounting">Accounting</option>
+                        <option value="Agricultural Sciences">Agricultural Sciences</option>
+                        <option value="Business Studies">Business Studies</option>
+                        <option value="Dramatic Arts">Dramatic Arts</option>
+                        <option value="Economics">Economics</option>
+                        <option value="Engineering Graphics and Design">Engineering Graphics and Design</option>
+                        <option value="Geography">Geography</option>
+                        <option value="History">History</option>
+                        <option value="Consumer Studies">Consumer Studies</option>
+                        <option value="Information Technology">Information Technology</option>
+                        <option value="Life Sciences">Life Sciences</option>
+                        <option value="Mathematical Literacy">Mathematical Literacy</option>
+                        <option value="Music">Music</option>
+                        <option value="Physical Sciences">Physical Sciences</option>
+                        <option value="Religion studies">Religion studies</option>
+                        <option value="Visual Arts">Visual Arts</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+            <div id="languagesContainer">
+
+                <div id="languagesDropdown" class="dropdown-content" style="display: none;">
+
+                    <!-- Dropdown for languages -->
+                    <label for="SelectedLanguage">Specify The Language For The Class In Session</label>
+
+                    <select name="SelectedLanguage" id="languagesDropdown">
+                        <option value="Afrikaans">Afrikaans</option>
+                        <option value="English">English</option>
+                        <option value="isiNdebele">isiNdebele</option>
+                        <option value="isiXhosa">isiXhosa</option>
+                        <option value="isiZulu">isiZulu</option>
+                        <option value="Sepedi">Sepedi</option>
+                        <option value="Sesotho">Sesotho</option>
+                        <option value="Setswana">Setswana</option>
+                        <option value="Siswati">Siswati</option>
+                        <option value="Tshivenda">Tshivenda</option>
+                        <option value="Xitsonga">Xitsonga</option>
+                    </select>
+
+                </div>
+            </div>
+
+        </div>
+
     </div>
 
     <div class="form-group">

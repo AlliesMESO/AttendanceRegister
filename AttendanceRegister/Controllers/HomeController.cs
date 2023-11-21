@@ -40,6 +40,7 @@ namespace AttendanceRegister.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 _dbContext.Add(attendanceRecord);
                 _dbContext.SaveChanges();
 

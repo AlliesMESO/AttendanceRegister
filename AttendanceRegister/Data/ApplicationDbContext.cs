@@ -14,6 +14,8 @@ namespace AttendanceRegister.Data
 
         public DbSet<AttendanceRecord> AttendanceRecords{ get; set; }
 
+
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
            if (!optionsBuilder.IsConfigured)
